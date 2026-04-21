@@ -1,0 +1,129 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    padding: 15px 20px;
+}
+
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    background: lightblue;
+    padding: 60px 20px;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    object-fit: cover;
+    border: 3px solid black;
+}
+
+/* Box Model */
+.box1 {
+    background: lightgreen;
+    padding: 20px;
+    margin: 40px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.box2 {
+    background: lightcoral;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* Flexbox */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.item {
+    background: orange;
+    padding: 20px;
+    width: 60px;
+    text-align: center;
+}
+
+/* About */
+.about {
+    text-align: center;
+    background: #f2f2f2;
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+    background: #e6f7ff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box1, .box2 {
+        margin: 20px;
+    }
+}
