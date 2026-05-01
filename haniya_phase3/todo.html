@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To Do App</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+      width: 350px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 25px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .input-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .add-btn {
+      background: #00c9a7;
+      border-radius: 10px;
+      padding: 10px 15px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-btn:hover {
+      background: #00a78e;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      background: rgba(255,255,255,0.2);
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    li:hover {
+      transform: scale(1.02);
+    }
+
+    .task-text {
+      flex: 1;
+    }
+
+    .actions button {
+      border: none;
+      margin-left: 5px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      font-size: 12px;
+    }
+
+    .edit {
+      background: #ffc107;
+    }
+
+    .delete {
+      background: #ff4d4d;
+    }
+
+    .edit:hover {
+      background: #e0a800;
+    }
+
+    .delete:hover {
+      background: #cc0000;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+  <h2>✨ To Do App</h2>
+
+  <div class="input-box">
+    <input type="text" id="task" placeholder="Add your task...">
+    <button class="add-btn" onclick="addTask()">Add</button>
+  </div>
+
+  <ul id="list"></ul>
+</div>
+
+<script>
+
+function addTask() {
+  let taskInput = document.getElementById("task");
+  let taskValue = taskInput.value;
+
+  if (taskValue === "") {
+    alert("Enter a task!");
+    return;
+  }
+
+  let li = document.createElement("li");
+
+  let span = document.createElement("span");
+  span.className = "task-text";
+  span.innerText = taskValue;
+
+  let actions = document.createElement("div");
+  actions.className = "actions";
+
+  // EDIT
+  let editBtn = document.createElement("button");
+  editBtn.innerText = "Edit";
+  editBtn.className = "edit";
+
+  editBtn.onclick = function () {
+    let newTask = prompt("Edit task:", span.innerText);
+    if (newTask !== null && newTask !== "") {
+      span.innerText = newTask;
+    }
+  };
+
+  // DELETE
+  let deleteBtn = document.createElement("button");
+  deleteBtn.innerText = "Delete";
+  deleteBtn.className = "delete";
+
+  deleteBtn.onclick = function () {
+    li.remove();
+  };
+
+  actions.appendChild(editBtn);
+  actions.appendChild(deleteBtn);
+
+  li.appendChild(span);
+  li.appendChild(actions);
+
+  document.getElementById("list").appendChild(li);
+
+  taskInput.value = "";
+}
+
+</script>
+
+</body>
+</html>

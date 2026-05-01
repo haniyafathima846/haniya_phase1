@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events</title>
+</head>
+<body>
+
+<h2 id="result">Type something...</h2>
+
+<input type="text" id="inputBox" placeholder="Type here">
+
+<button id="btn">Click Me</button>
+
+<script>
+// Button click
+document.getElementById("btn").addEventListener("click", function() {
+  document.getElementById("result").innerHTML = "Button Clicked!";
+});
+
+// Live input preview
+document.getElementById("inputBox").addEventListener("input", function() {
+  document.getElementById("result").innerHTML = this.value;
+});
+</script>
+
+</body>
+</html>
